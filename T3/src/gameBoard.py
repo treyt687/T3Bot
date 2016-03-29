@@ -35,6 +35,14 @@ class GameBoard:
 
     def checkWin(self, playerIdentity):
 
+        """
+        Function call for checking win state of self.gameBoard
+
+        ex. checkWin('x') -> will return true if 'x' is found
+        in any 3 consecutive directions (vertically, horizontally,
+        diagonally) on the gameBoard
+        """
+        
         # top row
 	if (self.gameBoard[0][0] == playerIdentity and self.gameBoard[0][1] == 
 		playerIdentity and self.gameBoard[0][2] == playerIdentity):
@@ -81,5 +89,5 @@ class GameBoard:
 		playerIdentity and self.gameBoard[2][0] == playerIdentity):
 	       		return true
 	
-		return false
+	return false
 
