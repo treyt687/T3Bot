@@ -64,3 +64,5 @@ class GameBoard:
         elif (self.gameBoard[0][2] == playerIdentity and self.gameBoard[1][1] ==
             playerIdentity and self.gameBoard[2][0] == playerIdentity):
                 return true
+
+        return false
