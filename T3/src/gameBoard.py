@@ -43,50 +43,30 @@ class GameBoard:
         diagonally) on the gameBoard
         """
 
-        # top row
-	if (self.gameBoard[0][0] == playerIdentity and self.gameBoard[0][1] ==
-		playerIdentity and self.gameBoard[0][2] == playerIdentity):
-			return true
-
-       	# middle row
-       	elif (self.gameBoard[1][0] == playerIdentity and self.gameBoard[1][1] ==
-		playerIdentity and self.gameBoard[1][2] == playerIdentity):
-	      		return true
-
-	# bottom row
-	elif (self.gameBoard[2][0] == playerIdentity and self.gameBoard[2][1] ==
-		playerIdentity and self.gameBoard[2][2] == playerIdentity):
-	       		return true
+        # Horizontal testing
+        for r in range(3):
+            if (self.gameBoard[r][0] == playerIdentity and self.gameBoard[r][1] ==
+            	playerIdentity and self.gameBoard[r][2] == playerIdentity):
+            		return true
 
 
-       	# Vertical Testing:
-
-	# left row
-	elif (self.gameBoard[0][0] == playerIdentity and self.gameBoard[1][0] ==
-		playerIdentity and self.gameBoard[2][0] == playerIdentity):
-	       		return true
-
-	# middle row
-	elif (self.gameBoard[0][1] == playerIdentity and self.gameBoard[1][1] ==
-		playerIdentity and self.gameBoard[2][1] == playerIdentity):
-				return true
-
-	# right row
-	elif (self.gameBoard[0][2] == playerIdentity and self.gameBoard[1][2] ==
-		playerIdentity and self.gameBoard[2][2] == playerIdentity):
-	       		return true
+        # Vertical testing
+        for c in range(3):
+            if (self.gameBoard[0][c] == playerIdentity and self.gameBoard[1][c] ==
+        		playerIdentity and self.gameBoard[2][c] == playerIdentity):
+        			return true
 
 
-	# Diagonal Testing:
+	    # Diagonal Testing:
 
-	# Left-Right
-	elif (self.gameBoard[0][0] == playerIdentity and self.gameBoard[1][1] ==
-		playerIdentity and self.gameBoard[2][2] == playerIdentity):
-	       		return true
+	    # Left-Right
+    if (self.gameBoard[0][0] == playerIdentity and self.gameBoard[1][1] ==
+        playerIdentity and self.gameBoard[2][2] == playerIdentity):
+	   		return true
 
 	# Right-Left
-	elif (self.gameBoard[0][2] == playerIdentity and self.gameBoard[1][1] ==
-		playerIdentity and self.gameBoard[2][0] == playerIdentity):
+        elif (self.gameBoard[0][2] == playerIdentity and self.gameBoard[1][1] ==
+            playerIdentity and self.gameBoard[2][0] == playerIdentity):
 	       		return true
 
-	return false
+	    return false
