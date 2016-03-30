@@ -56,6 +56,7 @@ class GameBoard:
         		playerIdentity and self.gameBoard[2][c] == playerIdentity):
         			return true
 
+        # Diagonal Checking
         if (self.gameBoard[0][0] == playerIdentity and self.gameBoard[1][1] ==
             playerIdentity and self.gameBoard[2][2] == playerIdentity):
                 return true
