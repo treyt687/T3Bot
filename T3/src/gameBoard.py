@@ -56,17 +56,10 @@ class GameBoard:
         		playerIdentity and self.gameBoard[2][c] == playerIdentity):
         			return true
 
+        if (self.gameBoard[0][0] == playerIdentity and self.gameBoard[1][1] ==
+            playerIdentity and self.gameBoard[2][2] == playerIdentity):
+                return true
 
-	    # Diagonal Testing:
-
-	    # Left-Right
-    if (self.gameBoard[0][0] == playerIdentity and self.gameBoard[1][1] ==
-        playerIdentity and self.gameBoard[2][2] == playerIdentity):
-	   		return true
-
-	# Right-Left
         elif (self.gameBoard[0][2] == playerIdentity and self.gameBoard[1][1] ==
             playerIdentity and self.gameBoard[2][0] == playerIdentity):
-	       		return true
-
-	    return false
+                return true
