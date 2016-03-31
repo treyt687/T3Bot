@@ -5,8 +5,30 @@ class GameBoard:
     	"""
     	Initialization method of 3x3 GameBoard class
     	"""
+        self.currentTurn = 'x'
 
         self.gameBoard = [['-' for x in range(3)] for x in range(3)]
+
+    def getCurrentTurn(self):
+
+        """
+        Encapsulation method for returning
+        the currentTurn of the GameBoard
+        """
+
+        return self.currentTurn
+
+    def changeCurrentTurn(self):
+
+        """
+        Function call for changing the currentTurn
+        on the GameBoard
+        """
+
+        if self.currentTurn == 'x':
+            self.currentTurn = 'o
+        else:
+            self.currentTurn = 'x'
 
     def placeKey(self, playerTurn, locX, locY):
 

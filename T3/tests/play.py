@@ -27,25 +27,25 @@ class GamePlay:
         Function call for initializing GameBoard buttons
         in 3x3 structure
         """
-
+        
         zz = Tkinter.Button(self.root, text=str(self.gb.gameBoard[0][0]),
-            command=lambda: self.callback(0, 0)).grid(row=0,column=0)
+            command=lambda: self.play(0, 0)).grid(row=0,column=0)
         zo = Tkinter.Button(self.root, text=str(self.gb.gameBoard[0][1]),
-            command=lambda: self.callback(0, 1)).grid(row=0,column=1)
+            command=lambda: self.play(0, 1)).grid(row=0,column=1)
         zt = Tkinter.Button(self.root, text=str(self.gb.gameBoard[0][2]),
-            command=lambda: self.callback(0, 2)).grid(row=0,column=2)
+            command=lambda: self.play(0, 2)).grid(row=0,column=2)
         oz = Tkinter.Button(self.root, text=str(self.gb.gameBoard[1][0]),
-            command=lambda: self.callback(1, 0)).grid(row=1,column=0)
+            command=lambda: self.play(1, 0)).grid(row=1,column=0)
         oo = Tkinter.Button(self.root, text=str(self.gb.gameBoard[1][1]),
-            command=lambda: self.callback(1, 1)).grid(row=1,column=1)
+            command=lambda: self.play(1, 1)).grid(row=1,column=1)
         ot = Tkinter.Button(self.root, text=str(self.gb.gameBoard[1][2]),
-            command=lambda: self.callback(1, 2)).grid(row=1,column=2)
+            command=lambda: self.play(1, 2)).grid(row=1,column=2)
         tz = Tkinter.Button(self.root, text=str(self.gb.gameBoard[2][0]),
-            command=lambda: self.callback(2, 0)).grid(row=2,column=0)
+            command=lambda: self.play(2, 0)).grid(row=2,column=0)
         to = Tkinter.Button(self.root, text=str(self.gb.gameBoard[2][1]),
-            command=lambda: self.callback(2, 1)).grid(row=2,column=1)
+            command=lambda: self.play(2, 1)).grid(row=2,column=1)
         tt = Tkinter.Button(self.root, text=str(self.gb.gameBoard[2][2]),
-            command=lambda: self.callback(2, 2)).grid(row=2,column=2)
+            command=lambda: self.play(2, 2)).grid(row=2,column=2)
 
     def getRoot(self):
         """
@@ -54,14 +54,25 @@ class GamePlay:
         """
         return self.root
 
-    def callback(self, r, c):
+    def play(self, r, c):
+        if self.gb.getCurrentTurn() == 'x':
+            self.gb.placeKey('x', r, c)
+        self.root.
+
         """
         Function callback for Tkinter buttons
         on GameBoard -> For some reason not calling
-        callback as a lambda executes the callback
+        play as a lambda executes the play
         method immediately upon runtime - FIX?
         """
         print("%s, %s") % (r, c)
 
+    def g
+
 gp = GamePlay()
 gp.getRoot().mainloop()
+
+gameRunning = true
+
+while (gameRunning):
+    if gp.getCurrentTurn() == 'x':
