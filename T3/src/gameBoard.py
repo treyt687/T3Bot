@@ -26,7 +26,7 @@ class GameBoard:
         """
 
         if self.currentTurn == 'x':
-            self.currentTurn = 'o
+            self.currentTurn = 'o'
         else:
             self.currentTurn = 'x'
 
@@ -41,17 +41,19 @@ class GameBoard:
         playerIdentity will be placed
         """
 
-        if playerTurn == playerIdentity:
-            if self.gameBoard[locX][locY] == ' ':
-                 self.gameBoard[locX][locY] = playerIdentity
+        if playerTurn == 'x':
+            if self.gameBoard[locX][locY] == '-':
+                 self.gameBoard[locX][locY] = 'x'
             else:
-                print("GameBoard location %d, %d full. Please select new location") % (locX, loxY)
+                print("GameBoard location %d, %d full. Please select new\
+                location") % (locX, locY)
 
         elif playerTurn == 'o':
-            if self.gameBoard[locX][locY] == ' ':
+            if self.gameBoard[locX][locY] == '-':
                  self.gameBoard[locX][locY] = 'o'
             else:
-                print("GameBoard location %d, %d full. Please select new location") % (locX, loxY)
+                print("GameBoard location %d, %d full. Please select new \
+                location") % (locX, locY)
         else:
             print("Player identity invalid. Please select new player identity.")
 
@@ -67,24 +69,24 @@ class GameBoard:
 
         # Horizontal testing
         for r in range(3):
-            if (self.gameBoard[r][0] == playerIdentity and self.gameBoard[r][1] ==
-            	playerIdentity and self.gameBoard[r][2] == playerIdentity):
-            		return true
+            if (self.gameBoard[r][0] == playerIdentity and self.gameBoard[r][1]
+                ==	playerIdentity and self.gameBoard[r][2] == playerIdentity):
+            		return True
 
 
         # Vertical testing
         for c in range(3):
-            if (self.gameBoard[0][c] == playerIdentity and self.gameBoard[1][c] ==
-        		playerIdentity and self.gameBoard[2][c] == playerIdentity):
-        			return true
+            if (self.gameBoard[0][c] == playerIdentity and self.gameBoard[1][c]
+                == playerIdentity and self.gameBoard[2][c] == playerIdentity):
+        			return True
 
         # Diagonal Checking
         if (self.gameBoard[0][0] == playerIdentity and self.gameBoard[1][1] ==
             playerIdentity and self.gameBoard[2][2] == playerIdentity):
-                return true
+                return True
 
         elif (self.gameBoard[0][2] == playerIdentity and self.gameBoard[1][1] ==
             playerIdentity and self.gameBoard[2][0] == playerIdentity):
-                return true
+                return True
 
-        return false
+        return False
