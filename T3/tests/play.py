@@ -85,6 +85,7 @@ def main():
             gameRunning = False
         elif gp.gb.checkTie() == True:
             tkMessageBox.showinfo("It's a tie!", "Neither player has won!")
+            gameRunning = False
 
 if __name__ == '__main__':
     main()
