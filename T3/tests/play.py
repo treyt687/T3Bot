@@ -3,6 +3,7 @@ import sys
 sys.path.insert(0, '/Users/Trey/Desktop/Code/Python/t3bot/T3/src/')
 
 import Tkinter
+import tkMessageBox
 
 
 import gameBoard
@@ -16,8 +17,7 @@ class GamePlay:
     def __init__(self):
         self.root = Tkinter.Tk()
         self.root.title("T3Bot")
-        self.root.minsize(width=300, height=300)
-        self.root.maxsize(width=300, height=300)
+        # self.root.geometry("300x300")
         self.window_width = self.root.winfo_height()
         self.window_height = self.root.winfo_width()
         self.gb = gameBoard.GameBoard()
@@ -57,13 +57,6 @@ class GamePlay:
         return self.root
 
     def play(self, r, c):
-        if self.gb.getCurrentTurn() == 'x':
-            self.gb.placeKey('x', r, c)
-            self.gb.changeCurrentTurn()
-        elif self.gb.getCurrentTurn() == 'o':
-            self.gb.placeKey('o', r, c)
-            self.gb.changeCurrentTurn()
-
 
         """
         Function callback for Tkinter buttons
@@ -71,15 +64,27 @@ class GamePlay:
         play as a lambda executes the play
         method immediately upon runtime - FIX?
         """
-        print("%s, %s") % (r, c)
 
-gp = GamePlay()
-gameRunning = True
+        if self.gb.getCurrentTurn() == 'x':
+            self.gb.placeKey('x', r, c)
+        elif self.gb.getCurrentTurn() == 'o':
+            self.gb.placeKey('o', r, c)
 
-while (gameRunning):
-    gp.updateButtons()
-    if gp.gb.checkWin('x') == True:
-        gameRunning = False
-    elif gp.gb.checkWin('o') == True:
-        gameRunning = False
-    gp.getRoot().update()
+def main():
+    gp = GamePlay()
+    gameRunning = True
+
+    while (gameRunning):
+        gp.getRoot().update()
+        gp.updateButtons()
+        if gp.gb.checkWin('x') == True:
+            tkMessageBox.showinfo("X Won!", "PlayerX has won!")
+            gameRunning = False
+        elif gp.gb.checkWin('o') == True:
+            tkMessageBox.showinfo("O Won!", "PlayerO has won!")
+            gameRunning = False
+        elif gp.gb.checkTie() == True:
+            tkMessageBox.showinfo("It's a tie!", "Neither player has won!")
+
+if __name__ == '__main__':
+    main()

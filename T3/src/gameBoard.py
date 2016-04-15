@@ -44,6 +44,7 @@ class GameBoard:
         if playerTurn == 'x':
             if self.gameBoard[locX][locY] == '-':
                  self.gameBoard[locX][locY] = 'x'
+                 self.changeCurrentTurn()
             else:
                 print("GameBoard location %d, %d full. Please select new\
                 location") % (locX, locY)
@@ -51,6 +52,7 @@ class GameBoard:
         elif playerTurn == 'o':
             if self.gameBoard[locX][locY] == '-':
                  self.gameBoard[locX][locY] = 'o'
+                 self.changeCurrentTurn()
             else:
                 print("GameBoard location %d, %d full. Please select new \
                 location") % (locX, locY)
@@ -89,4 +91,13 @@ class GameBoard:
             playerIdentity and self.gameBoard[2][0] == playerIdentity):
                 return True
 
+        return False
+
+    def checkTie(self):
+        if (self.gameBoard[0][0] != '-' and self.gameBoard[0][1] != '-'
+            and self.gameBoard[0][2] != '-' and self.gameBoard[1][0] != '-'
+            and self.gameBoard[1][1] != '-' and self.gameBoard[1][2] != '-'
+            and self.gameBoard[2][0] != '-' and self.gameBoard[2][1] != '-'
+            and self.gameBoard[2][2] != '-'):
+                return True
         return False
